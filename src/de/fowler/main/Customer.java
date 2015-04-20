@@ -3,7 +3,7 @@ package de.fowler.main;
 import java.util.Enumeration;
 import java.util.Vector;
 
-class Customer {
+public class Customer {
     private String name;
     private Vector<Rental> rentals = new Vector<>();
     public Customer (String newname){
