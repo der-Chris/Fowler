@@ -1,4 +1,9 @@
 package de.fowler.main;
+
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+
+
 /**
  * Note that Java console applications need to be run through the java runtime
  * by running "java -jar JarFile.jar" in the command line.
@@ -13,6 +18,10 @@ public class Program
     
     public static void main(String args[]) 
     {
+		try {
+			System.setOut(new PrintStream("test.txt"));
+		} catch (FileNotFoundException e) {
+		}
         String result;
         System.out.println("Welcome to the Movie Store");
         Movie m1 = new Movie("movie1", 1);
