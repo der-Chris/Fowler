@@ -1,3 +1,4 @@
+package de.fowler.main;
 import java.lang.*;
 import java.util.*;
 /**

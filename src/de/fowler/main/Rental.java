@@ -1,3 +1,4 @@
+package de.fowler.main;
 class Rental {
     private Movie movie;
     private int daysRented;
