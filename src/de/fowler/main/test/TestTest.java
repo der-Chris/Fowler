@@ -24,7 +24,7 @@ public class TestTest {
     Rental rentals[] = new Rental[movieNames.length];
     int rentalNewDaysRented[] = {10, 5};
     PriceCode[] moviePriceCodes = {PriceCode.NEW, PriceCode.CHILDREN};
-    String customerName = "joe";
+    String customerName = "oliver";
 
 	/**
 	 * @throws java.lang.Exception
@@ -46,9 +46,7 @@ public class TestTest {
             customer1.addRental(rentals[i]);
         }
   
-        result = customer1.statement();
-        System.out.println(result);
-        
+        result = customer1.statement();        
         StringBuilder wantedResult = new StringBuilder(); 
         wantedResult.append("Rental Record for " + customerName + System.lineSeparator());
         wantedResult.append("\t" + "Title" + "\t\t" + "Days" + "\t" + "Amount" + System.lineSeparator());
@@ -62,8 +60,6 @@ public class TestTest {
         }
         wantedResult.append("Amount owed is " + amounts + System.lineSeparator());
         wantedResult.append("You earned " + renterpoints + " frequent renter points");
-        System.out.println(wantedResult.toString());
-
         assertTrue(wantedResult.toString().equals(result));
         //fail("Not yet implemented");
 	}
