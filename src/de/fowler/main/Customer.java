@@ -24,13 +24,13 @@ public class Customer {
 
         while (enum_rentals.hasMoreElements()) {
             double thisAmount = 0;
-            Rental each = (Rental) enum_rentals.nextElement();
+            Rental rental = (Rental) enum_rentals.nextElement();
             //determine amounts for each line
-            thisAmount = each.getPrice();
+            thisAmount = rental.getPrice();
             // add frequent renter points
-            frequentRenterPoints += each.getRenterPoints();
+            frequentRenterPoints += rental.getRenterPoints();
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
+            result += "\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
         }
         //add footer lines
