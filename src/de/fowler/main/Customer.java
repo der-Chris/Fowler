@@ -28,7 +28,7 @@ public class Customer {
             //determine amounts for each line
             thisAmount = each.getPrice();
             // add frequent renter points
-            frequentRenterPoints = frequentRenterPoints + each.getRenterPoints();
+            frequentRenterPoints += each.getRenterPoints();
             //show figures for this rental
             result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
