@@ -6,15 +6,19 @@ import java.util.Vector;
 public class Customer {
     private String name;
     private Vector<Rental> rentals = new Vector<>();
-    public Customer (String newname){
+    
+    public Customer (String newname) {
         name = newname;
     };
+    
     public void addRental(Rental arg) {
         rentals.addElement(arg);
     };
-    public String getName (){
+    
+    public String getName () {
         return name;
     };
+    
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
@@ -23,14 +27,13 @@ public class Customer {
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
         while (enum_rentals.hasMoreElements()) {
-            double thisAmount = 0;
             Rental each = (Rental) enum_rentals.nextElement();
             //determine amounts for each line
-            thisAmount = each.getPrice();
+            double thisAmount = each.getPrice();
             // add frequent renter points
             frequentRenterPoints = frequentRenterPoints + each.getRenterPoints();
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
+            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + thisAmount + "\n";
             totalAmount += thisAmount;
         }
         //add footer lines
