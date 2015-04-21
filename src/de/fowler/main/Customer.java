@@ -30,6 +30,18 @@ public class Customer {
         return result;
     }
     
+    public String htmlStatement() {
+    	String result = "<H1>" + "Rentals for " + "<EM>" + getName() + "</EM></H1><P>\n";
+    	for(Rental rental : rentals){
+            result += rental.getMovie().getTitle()+ ": " +  rental.getPrice() + "<BR>\n";
+        }
+    
+    	//add footer lines
+        result += "<P>" + "You owe <EM>" + getAmountOwed() + "</BR><P>\n";
+    	result += "On this rental you eared <EM>" + getFrequentRenterPoints() + " </EM>frequent renter points <P>";
+    	return result;
+    }
+    
     public double getAmountOwed(){
     	double amount = 0;
     	for(Rental rental : rentals){
