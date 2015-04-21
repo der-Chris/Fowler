@@ -8,13 +8,16 @@ public class Customer {
     public Customer (String newname){
         name = newname;
     };
+    
     public void addRental(Rental arg) {
         rentals.add(arg);
     };
-    public String getName (){
+    
+    public String getName () {
         return name;
     };
-    public String statement() {  
+    
+    public String statement() {
         String result = "Rental Record for " + this.getName() + "\n";
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
