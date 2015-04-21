@@ -13,31 +13,11 @@ public class Rental {
         return movie;
     }
     
-    public double getPrice() {
-    	 double price = 0;
-         switch (this.getMovie().getPriceCode()) {
-             case REGULAR:
-                 price += 2;
-                 if (this.getDaysRented() > 2)
-                     price += (this.getDaysRented() - 2) * 1.5;
-                 break;
-             case NEW:
-                 price += this.getDaysRented() * 3;
-                 break;
-             case CHILDREN:
-                 price += 1.5;
-                 if (this.getDaysRented() > 3)
-                     price += (this.getDaysRented() - 3) * 1.5;
-                 break;
-         }
-         return price;
-    }
+    public double getCharge() {
+           return this.movie.getCharge(this.daysRented);
+      }
     
     public int getRenterPoints() {
-    	int frequentRenterPoints = 1;
-        if ((this.getMovie().getPriceCode() == PriceCode.NEW) && this.getDaysRented() > 1) {
-            frequentRenterPoints ++;
-            
-        } return frequentRenterPoints;
+    	return this.movie.getRenterPoints(this.daysRented);
     }
 }

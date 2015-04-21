@@ -22,7 +22,7 @@ public class Customer {
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
         for(Rental rental : rentals){
-            result += "\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + rental.getPrice() + "\n";
+            result += "\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + rental.getCharge() + "\n";
         }
         //add footer lines
         result += "Amount owed is " + getAmountOwed() + "\n";
@@ -33,7 +33,7 @@ public class Customer {
     public String htmlStatement() {
     	String result = "<H1>" + "Rentals for " + "<EM>" + getName() + "</EM></H1><P>\n";
     	for(Rental rental : rentals){
-            result += rental.getMovie().getTitle()+ ": " +  rental.getPrice() + "<BR>\n";
+            result += rental.getMovie().getTitle()+ ": " +  rental.getCharge() + "<BR>\n";
         }
     
     	//add footer lines
@@ -45,7 +45,7 @@ public class Customer {
     public double getAmountOwed(){
     	double amount = 0;
     	for(Rental rental : rentals){
-    		amount += rental.getPrice();
+    		amount += rental.getCharge();
     	}
     	return amount;
     }

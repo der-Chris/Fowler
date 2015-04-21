@@ -53,7 +53,7 @@ public class TestTest {
         double amounts = 0;
         int renterpoints = 0;
         for (int i = 0; i < movieNames.length; i = i + 1) {
-        	double amount = rentals[i].getPrice();
+        	double amount = rentals[i].getCharge();
         	amounts = amounts + amount;
             wantedResult.append("\t" + movieNames[i] + "\t\t" + rentalNewDaysRented[i] + "\t" + amount + System.lineSeparator());
             renterpoints = renterpoints + rentals[i].getRenterPoints();
