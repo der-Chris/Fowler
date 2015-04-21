@@ -1,18 +1,16 @@
 package de.fowler.main;
 
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class Customer {
     private String name;
-    private Vector<Rental> rentals = new Vector<>();
-    
-    public Customer (String newname) {
+    private ArrayList<Rental> rentals = new ArrayList<Rental>();
+    public Customer (String newname){
         name = newname;
     };
     
     public void addRental(Rental arg) {
-        rentals.addElement(arg);
+        rentals.add(arg);
     };
     
     public String getName () {
@@ -21,24 +19,22 @@ public class Customer {
     
     public String statement() {
         double totalAmount = 0;
-        int frequentRenterPoints = 0;
-        Enumeration<Rental> enum_rentals = rentals.elements();	    
+        int frequentRenterPoints = 0;   
         String result = "Rental Record for " + this.getName() + "\n";
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
-        while (enum_rentals.hasMoreElements()) {
-            Rental each = (Rental) enum_rentals.nextElement();
+        for(Rental rental : rentals){
             //determine amounts for each line
-            double thisAmount = each.getPrice();
+            double thisAmount = rental.getPrice();
             // add frequent renter points
-            frequentRenterPoints = frequentRenterPoints + each.getRenterPoints();
+            frequentRenterPoints += rental.getRenterPoints();
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + thisAmount + "\n";
+            result += "\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + thisAmount + "\n";
             totalAmount += thisAmount;
         }
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+        result += "Amount owed is " + totalAmount + "\n";
+        result += "You earned " + frequentRenterPoints + " frequent renter points";
         return result;
     }
 
