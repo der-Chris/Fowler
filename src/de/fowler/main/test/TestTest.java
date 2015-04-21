@@ -53,13 +53,15 @@ public class TestTest {
         wantedResult.append("Rental Record for " + customerName + System.lineSeparator());
         wantedResult.append("\t" + "Title" + "\t\t" + "Days" + "\t" + "Amount" + System.lineSeparator());
         double amounts = 0;
+        int renterpoints = 0;
         for (int i = 0; i < movieNames.length; i = i + 1) {
-        	double amount = customer1.amountFor(rentals[i]);
+        	double amount = rentals[i].getPrice();
         	amounts = amounts + amount;
             wantedResult.append("\t" + movieNames[i] + "\t\t" + rentalNewDaysRented[i] + "\t" + amount + System.lineSeparator());
+            renterpoints = renterpoints + rentals[i].getRenterPoints();
         }
         wantedResult.append("Amount owed is " + amounts + System.lineSeparator());
-        wantedResult.append("You earned 3 frequent renter points");
+        wantedResult.append("You earned " + renterpoints + " frequent renter points");
         System.out.println(wantedResult.toString());
 
         assertTrue(wantedResult.toString().equals(result));
