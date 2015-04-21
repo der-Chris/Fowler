@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import de.fowler.main.Customer;
 import de.fowler.main.Movie;
+import de.fowler.main.PriceCode;
 import de.fowler.main.Rental;
 
 /**
@@ -22,7 +23,7 @@ public class TestTest {
     Movie movies[] = new Movie[movieNames.length];
     Rental rentals[] = new Rental[movieNames.length];
     int rentalNewDaysRented[] = {10, 5};
-    int moviePriceCodes[] = {1, 2};
+    PriceCode[] moviePriceCodes = {PriceCode.NEW, PriceCode.CHILDREN};
     String customerName = "joe";
 
 	/**
