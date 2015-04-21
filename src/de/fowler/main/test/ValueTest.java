@@ -20,8 +20,8 @@ public class ValueTest {
         Customer c1 = new Customer("joe");
         c1.addRental(r1);
         c1.addRental(r2);
-        assertTrue(r1.getPrice()==30);
-        assertTrue(r2.getPrice()==4.5);
+        assertTrue(r1.getCharge()==30);
+        assertTrue(r2.getCharge()==4.5);
         assertTrue(c1.getAmountOwed()==34.5);
         assertTrue(c1.getFrequentRenterPoints()==3);
 	}
