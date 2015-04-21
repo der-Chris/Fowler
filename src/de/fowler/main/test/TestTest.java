@@ -8,12 +8,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.fowler.main.ChildrensMovie;
 import de.fowler.main.Customer;
 import de.fowler.main.Movie;
-import de.fowler.main.NewReleaseMovie;
 import de.fowler.main.PriceCode;
-import de.fowler.main.RegularMovie;
 import de.fowler.main.Rental;
 
 /**
@@ -44,13 +41,7 @@ public class TestTest {
         String result;
         Customer customer1 = new Customer(customerName);
         for (int i = 0; i < movieNames.length; i = i + 1) {
-        	if (moviePriceCodes[i] == PriceCode.NEW) {
-        		movies[i] = new NewReleaseMovie(movieNames[i], moviePriceCodes[i]);
-        	} else if (moviePriceCodes[i] == PriceCode.CHILDREN) {
-        		movies[i] = new ChildrensMovie(movieNames[i], moviePriceCodes[i]);
-        	} else if (moviePriceCodes[i] == PriceCode.REGULAR) {
-        		movies[i] = new RegularMovie(movieNames[i], moviePriceCodes[i]);
-        	}
+        	movies[i] = new Movie(movieNames[i], moviePriceCodes[i]);
             rentals[i] = new Rental(movies[i], rentalNewDaysRented[i]);
             customer1.addRental(rentals[i]);
         }
